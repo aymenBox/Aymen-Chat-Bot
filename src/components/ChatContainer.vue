@@ -1,9 +1,9 @@
 <template>
 
 
-    <div class="scroll" style="max-height: 65vh">
+    <q-scroll-area style="height: 65vh;,max-height: 65vh">
         <q-chat-message v-for="m in chat" :key="m.id" :name="m.name" :avatar="m.avatar" :text="m.text" :sent="m.sent" />
-    </div>
+    </q-scroll-area>
 
 
 
