@@ -1,6 +1,7 @@
 # Aymen AI (aymen-ai)
 
 AI chat bot with quasar
+making it easy to use
 
 ## Install the dependencies
 ```bash
