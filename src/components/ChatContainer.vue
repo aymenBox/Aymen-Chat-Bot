@@ -1,7 +1,7 @@
 <template>
 
 
-    <q-scroll-area style="height: 65vh;,max-height: 65vh">
+    <q-scroll-area style="height: 65vh;,max-height: 65vh" ref="ChatScrollArea">
         <q-chat-message v-for="m in chat" :key="m.id" :name="m.name" :avatar="m.avatar" :text="m.text" :sent="m.sent" />
     </q-scroll-area>
 
@@ -61,7 +61,8 @@ export default defineComponent({
                 });
                 //after sending message, reset message to empty
                 message.value = '';
-
+                //set Scroll percentage to 100 every time a message is sent
+                this.$refs.ChatScrollArea.setScrollPercentage("vertical", 100, 0);
             }
         }
     }
