@@ -7,19 +7,23 @@
                 </div>
             </template>
             <div id="MyChatMessageContainer">
-                <q-chat-message name="me" avatar="https://cdn.quasar.dev/img/avatar1.jpg" :text="['hey, how are you?']"
+                <q-chat-message name="aymen" avatar="~assets/bot.jpg"
+                    :text="['Hello I\'m a chat Bot My name is Aymen, how can i Help you Today']" />
+                <q-chat-message name="User" avatar="https://cdn.quasar.dev/img/avatar1.jpg" :text="['hey, how are you?']"
                     sent />
-                <q-chat-message name="Jane" avatar="https://cdn.quasar.dev/img/avatar2.jpg"
-                    :text="['doing fine, how r you?']" />
+
             </div>
 
         </q-infinite-scroll>
         <!-- this q-input is for writing messages -->
-        <q-input label="Write a message" >
-            <template v-slot:after>
-                <q-btn round dense flat icon="send" />
-            </template>
-        </q-input>
+        <div class="absolute-bottom q-pb-xl q-pl-md">
+            <q-input label="Write a message" outlined>
+                <template v-slot:after>
+                    <q-btn dense flat icon="send" @click="SendMessage()" />
+                </template>
+            </q-input>
+        </div>
+
     </div>
 </template>
 
@@ -30,12 +34,16 @@ export default defineComponent({
     name: 'ChatContainer',
     setup() {
         //set ScrollerOffset to -1 to prevent loading on initial load
-        var ScrollerOffset = -1;
+        var ScrollerOffset = ref(-1);
+        var chat = ref([]);
 
         return {
             ScrollerOffset,
             onLoad(index, done) {
                 //ToDo: add loading spinner
+            },
+            SendMessage() {
+                //ToDo: add message to chat
             }
         }
     }
