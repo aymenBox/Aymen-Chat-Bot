@@ -1,42 +1,8 @@
-# Aymen AI (aymen-ai)
+# Chat Component for quasar vue apps 
 
-AI chat bot with quasar
-making it easy to use and learn
+this is a chat component for quasar vue apps you can copy the code and use it in your project
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
+## usage
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+just copy the file in src/components/ChatContainer.vue and import it in your project
 
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
