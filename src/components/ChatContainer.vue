@@ -1,30 +1,24 @@
 <template>
-    <div class="q-pa-md">
-        <q-infinite-scroll @load="onLoad" reverse :offset="-1">
-            <template v-slot:loading>
-                <div class="row justify-center q-my-md">
-                    <q-spinner color="primary" name="dots" size="40px" />
-                </div>
-            </template>
-            <div id="MyChatMessageContainer">
-                <q-chat-message name="aymen" avatar="~assets/bot.jpg"
-                    :text="['Hello I\'m a chat Bot My name is Aymen, how can i Help you Today']" />
-                <q-chat-message name="User" avatar="https://cdn.quasar.dev/img/avatar1.jpg" :text="['hey, how are you?']"
-                    sent />
 
-            </div>
 
-        </q-infinite-scroll>
-        <!-- this q-input is for writing messages -->
-        <div class="absolute-bottom q-pb-xl q-pl-md">
-            <q-input label="Write a message" outlined>
-                <template v-slot:after>
-                    <q-btn dense flat icon="send" @click="SendMessage()" />
-                </template>
-            </q-input>
-        </div>
-
+    <div class="scroll" style="max-height: 65vh">
+        <q-chat-message v-for="m in chat" :key="m.id" :name="m.name" :avatar="m.avatar" :text="m.text" :sent="m.sent" />
     </div>
+
+
+
+    <!-- this q-input is for writing messages -->
+    <div class="absolute-bottom q-pb-xl q-pl-md ">
+        <q-input label="Write a message" outlined v-model="message" @keydown.enter="SendMessage()">
+            <template v-slot:after>
+                <q-btn dense flat icon="send" @click="SendMessage()" />
+            </template>
+        </q-input>
+    </div>
+
+
+
+
 </template>
 
 <script>
@@ -35,15 +29,39 @@ export default defineComponent({
     setup() {
         //set ScrollerOffset to -1 to prevent loading on initial load
         var ScrollerOffset = ref(-1);
-        var chat = ref([]);
+        var messageId = 0;
+        var chat = ref([
+            {
+                id: messageId++,
+                name: 'aymen',
+                avatar: '/bot.jpg',
+                text: ['Hello I\'m a chat Bot My name is Aymen, how can i Help you Today'],
+                sent: false
+            }
+        ]);
+        var message = ref('');
 
         return {
             ScrollerOffset,
+            message,
+            chat,
             onLoad(index, done) {
                 //ToDo: add loading spinner
             },
             SendMessage() {
                 //ToDo: add message to chat
+                console.log("user : ", message.value);
+                //add message to chat
+                chat.value.push({
+                    id: messageId++,
+                    name: 'user',
+                    avatar: 'https://cdn.quasar.dev/img/avatar1.jpg',
+                    text: [message.value],
+                    sent: true
+                });
+                //after sending message, reset message to empty
+                message.value = '';
+
             }
         }
     }
