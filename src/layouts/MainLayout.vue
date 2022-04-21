@@ -7,7 +7,7 @@
           <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
           </q-avatar>
-          Quasar chat Bot
+          chat Bot
         </q-toolbar-title>
 
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
@@ -29,12 +29,12 @@
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  setup() {
     const rightDrawerOpen = ref(false)
 
     return {
       rightDrawerOpen,
-      toggleRightDrawer () {
+      toggleRightDrawer() {
         rightDrawerOpen.value = !rightDrawerOpen.value
       }
     }
