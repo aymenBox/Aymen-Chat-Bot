@@ -4,7 +4,8 @@ node_modules
 
 # Quasar core related directories
 .quasar
-/dist
+#keeping the dist folder for now to be used in production
+#/dist
 
 # Cordova related directories and files
 /src-cordova/node_modules
