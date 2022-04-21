@@ -1,8 +1,9 @@
-# Chat Component for quasar vue apps 
+# Chat Bot Application
 
-this is a chat component for quasar vue apps you can copy the code and use it in your project
+this is a chat bot application made by Aymen Boughanmi 
 
 ## usage
 
-just copy the file in src/components/ChatContainer.vue and import it in your project
+visite the link below to get the usage of the application
+link : https://chat-l779c73dr-aymenbox.vercel.app/#/
 
